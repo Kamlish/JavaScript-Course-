@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(199, 39, 39);
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.child{
+    width: 40vw;
+    height: 30vw;
+    background-color: #caeaff;
+    position: relative;
+    border-radius: 10px;  
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+h1{
+    color: rgba(27, 83, 185, 0.894);
+    font-size: 40px;
+    text-align: center; 
+    padding-top: 20px;
+}
+
+.btn{
+padding: 10px 40px;
+font-size: 20px;
+background-color: pink;
+margin: 10% 0% 0% 35%;
+position: absolute;
+}
+
+.jokes{
+    padding: 10px 5px;
+    text-align: center;
+    color: palevioletred;
+    padding-top: 30px;
+    font-size: 1.8em;
+}
+.btn:hover{
+    background-color: rgb(156, 38, 58);
+    color: rgb(239, 235, 236);
+}
+

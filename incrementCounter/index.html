@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <i class="fas fa-mug-hot fa-4x"></i>
+        <div class="counter" data-target="4000"></div>
+        <span>Projects Completed</span>
+    </div>
+    <br><br><br>
+
+    <div class="container">
+        <i class="fa fa-user fa-4x"></i>
+        <div class="counter" data-target="20000"></div>
+        <span>Happy Clients</span>
+        </div>
+    </div><br><br><br>
+
+    <div class="container">
+        <i class="fa fa-tasks fa-4x"></i>
+        <div class="counter" data-target="400"></div>
+        <span>OnGoing Projects</span>
+    </div>
+
+    <script>
+
+        const counters = document.querySelectorAll(".counter");
+        counters.forEach((counter) => {
+            counter.innerHTML = 0;
+
+            const updateCounter = () => {
+                const targetCount = +counter.getAttribute('data-target');
+                // + to used convert string into number
+
+                const startingCount = Number(counter.innerHTML);
+
+                const incr = targetCount/100;
+
+                if(startingCount<targetCount){
+                    counter.innerHTML = `${Math.round(startingCount + incr)}`;
+                    setTimeout(updateCounter, 20);
+                }  
+                else{
+                    counter.innerHTML = targetCount;
+                } 
+            }
+            updateCounter();
+        });
+
+    </script>
+</body>
+</html>
+
+
+<!-- data-(var) attribute are designed to hold custom data for custom 
+(typically client side JS) to process -->

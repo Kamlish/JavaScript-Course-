@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="mainDiv">
+        <div class="innerDiv">
+            <h1 style="font-size: 140px;"> I am Thermometer <span id="temp" class="fa"></span></h1>
+        </div>
+    </div>
+
+
+    <script>
+
+    const Thermometer = () => {
+        let temp = document.getElementById("temp");
+        temp.innerHTML = "&#xf2cb";
+
+        setTimeout(() => {
+            temp.innerHTML = "&#xf2ca";
+            temp.style.color = "#f8b627"; 
+    },1000);
+
+        setTimeout(() => {
+                temp.innerHTML = "&#xf2c9";
+        },2000);
+
+        setTimeout(() => {
+                temp.innerHTML = "&#xf2c8";
+        },3000);
+
+        setTimeout(() => {
+                temp.innerHTML = "&#xf2c7";
+                temp.style.color = "#d63031"; 
+        },4000);
+}
+
+        Thermometer();
+
+        setInterval(Thermometer,5000)
+        
+    </script>
+
+
+</body>
+</html>

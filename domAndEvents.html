@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            background-color: azure;
+        }
+
+        .para, #heading{
+            padding: 10px;
+            font-size: 23px;
+            text-align: center;
+            color:blueviolet
+            
+        }
+        button{
+            padding: 10px 10px;
+            position: relative;
+            margin-left: 44%;
+            background-color: rgb(11, 224, 167);
+            border: 1px solid black;
+            cursor: pointer;  
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        #box{
+            border: 1px solid black;
+            text-align: center;
+            padding: 40px;
+            margin: 50px 20px;
+            background-color: blueviolet;
+        }
+
+        .main-div{
+            border: 1px solid black;
+            text-align: center;
+            font-size: 40px;
+            width: auto;
+        }
+        .effect-1{
+            border: 3px solid black;
+            text-align: center;
+            width: 200px ;
+            height: 50px;
+            margin: 30px 20px;
+            font-size: x-large;
+        }
+
+        #key{
+            color: brown;
+        }
+        .container1{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            margin-bottom: 60px;
+            margin-left: 30%;
+        }
+
+    </style>
+    
+</head>
+<body>
+    
+        <!--DOM-->
+<br>
+        <p class="para">Please Like the video</p>
+        <p class="para">Please share the video</p>
+        <p class="para">Don't forget to share my chanel</p>
+
+        <h1 id="heading">Change the content of h1</h1>
+        <button onclick="changeContent()">Click Me</button>
+<br>
+        <!--Mouse Events-->
+
+        <p id="mouseEvent" onmousedown="mouseDown()" onmouseup="mouseUp()"> 
+        Click the text! The mouseDown() function is triggered when the mouse
+        button is pressed down over this paragraph, and sets the color of the text to yellow.
+        The mouse() function is triggered when the mouse button is released, and sets
+        the color of the text to orange</p>
+        
+        <div class="container">
+        <div id= "box">
+        </div></div>
+
+<br>
+        <!--KeyBoard Events-->
+
+        <div class ="main-div">
+            <p> A function is triggered when the user is pressing a key in field</p>
+            <br>
+            <input type="text" class="effect-1" onkeypress="keyPress()" onkeydown="keyDown()" onkeyup="keyUp()">
+            <br/>
+            <p id="key"></p>
+        </div>
+
+<br>
+        <!--Input Event -->
+
+        <div class="container1">
+            <div>
+                <label for="">Your Name: </label>
+                <input  type="text" name="" id="name">
+                <br><br>
+                <label>Choose your Gender 
+                <select id="gender" name="gender">
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male 🙋🏻‍♂️</option>
+                    <option value="Female">Female 🙋🏻‍♀️</option>
+                </select>
+                </label>
+            </div>
+            <br>
+            <div id="result"></div>
+        </div>
+
+
+
+
+</body>        
+
+
+    <script>
+
+        // DOM
+
+        const changeContent = () => {
+
+            // ① directly write the content
+                 //document.getElementById('heading').innerHTML = "Welcome Boy!";
+
+            // ② by taking the reference, heading is the object here
+            
+                    // const headingChange = document.getElementsByClassName('para');
+                    // headingChange.innerHTML = "Hello";
+
+                    //console.log(document.getElementsByClassName('para'));
+
+                    //console.log(document.getElementsByTagName('h1'));
+
+            // ⓷ Now the same, we have is the query selector
+            // querySelector is used for all selectors whether id, class,child etc
+                // querySelector(selectors) return the first matching value, whereas,
+                // querySelectorAll(selectors) will return all matching values
+
+                document.querySelector('.para').innerHTML = "Bye";
+        }
+
+        //Mouse Events
+
+        function mouseDown(){
+            document.getElementById('mouseEvent').style.color="#F8B627";
+        }
+
+        function mouseUp(){
+            document.getElementById('mouseEvent').style.color="orange";
+        }
+
+        const mEnter = document.getElementById("box")
+
+        mEnter.addEventListener("mouseenter", () => {
+            mEnter.style.backgroundColor = "pink";
+        });
+        mEnter.addEventListener("mouseleave", () => {
+            mEnter.style.backgroundColor= "purple";
+        });
+
+
+        // KeyBoard Events
+
+        const keyPress = () => {
+            document.getElementById('key').innerHTML = `you pressed ${event.key}`;
+        }
+
+        const keyDown = () => {
+            document.getElementById('key').innerHTML = `key is down`;
+        }
+
+        const keyUp = () => {
+            document.getElementById('key').innerHTML = `key is up`;
+        }
+
+        //Input Events
+
+        const gender = document.getElementById('gender');
+
+        gender.addEventListener("change", () => {
+            const input = document.getElementById('name').value;
+            const genderSelect = document.getElementById('gender').value;
+            const result = document.getElementById('result');
+
+            result.innerHTML = `Mr ${input} selects ${genderSelect} gender.`;
+
+            // We used change event because because we are using reference way.
+        });
+
+    </script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+            <form for="temp" onsubmit="calculateTemp(); return false ">
+            <label for="temp" style.font="center">Temp Converter</label> <br/>
+            <input type="number" name="temp" id="temp">
+            <select id="temp_diff" name="temp_diff">
+                <option  value="cel">Celceius</option>
+                <option  value="Far">Fahrenheit</option>
+            </select><br/>
+            <input type="submit" name="temp"><br/>
+            <span id="result"></span>
+
+
+    <script>
+
+    const calculateTemp = () =>{
+        const input = document.getElementById("temp").value;
+        const selectOption = document.getElementById("temp_diff").selectedIndex;
+        const result = document.getElementById("result");
+
+        
+        if(selectOption == 0){
+            const feh = Math.round((input*9/5)+32)
+            result.innerHTML=`${feh} Farhenhiet`;
+        }
+        else{
+            const cel = Math.round((input-32)*5/9)
+            result.innerHTML=`${cel} Celceius`;
+        }
+    }
+    calculateTemp();
+    btn.addEventListener("click",converter)
+
+
+
+    </script>
+</body>
+</html>

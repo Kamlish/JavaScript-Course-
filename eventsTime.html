@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <!--HTML-->
+
+    <!--Set Timeout-->
+    <!-- <div class="container">
+        <div>
+            <p>Want to know my name? 🤷🏻‍♂️</p>
+            <p id="showMyName" ></p>
+            <button id = "btn">Click</button>
+        </div>
+    </div>
+    <br><br><br> -->
+
+    <!--set TimeInterval()-->
+
+    <div class="main-div">
+        <div>
+            <p>click to start countdown</p>
+            <br>
+            <button id = "bt">start</button>
+            <button id = "bt1">stop</button>
+        </div>
+    </div>
+
+
+    <!--Javascript-->
+    <script>
+        // set Timeout()
+        
+    //     const myName = document.querySelector("#showMyName");
+    //     const btn = document.querySelector("#btn");
+
+    //     const showMyName = () => {
+    //         myName.innerHTML = "Loading... 🫣";
+    //         setTimeout(() => {
+    //             myName.innerHTML = "Kamlish Goswmai";
+    //     },2000);
+    // }
+
+    // btn.addEventListener("click",showMyName)
+
+    // set TimeInterval() / StopTimeInterval()
+
+    const stopNum = document.querySelector('p')
+    const bt = document.querySelector("#bt");
+    const stopInterval = document.querySelector("#bt1") // To stop
+    let num = 0;
+    let timeRef;    // To Stop
+
+    const showMyNum = () => {
+        stopNum.innerHTML = "Loading... 🫣";
+
+        timeRef = setInterval (() =>{  // we must pass reference of set interval to stop interval
+            stopNum.innerHTML = `${num}`
+            num++;
+        },1000)
+    }
+
+    bt.addEventListener('click',showMyNum);
+    
+    stopInterval.addEventListener('click',() =>{
+        clearInterval(timeRef);
+
+    });
+
+
+    </script>
+</body>
+</html>
